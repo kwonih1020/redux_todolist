@@ -1,10 +1,11 @@
 import React from 'react';
+import LayoutContainer from './style.js';
 
 const Layout = (props) => {
   return (
-    <div>
+    <LayoutContainer>
       {props.children}
-    </div>
+    </LayoutContainer>
   );
 };
 
