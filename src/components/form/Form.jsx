@@ -1,6 +1,7 @@
 // eslint-disable-next-line
 
 import React from 'react';
+import { Button, FormStyled, Label, Input } from './style.js';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { addTodo } from '../../redux/modules/todo';
@@ -29,24 +30,25 @@ const Form = () => {
 
   return (
     <div>
-      <form onSubmit={onSubmitHandler}>
-        <label>제목을 입력하세요</label>
-        <input
+      <FormStyled onSubmit={onSubmitHandler}>
+        <Label>제목을 입력하세요</Label>
+        <Input
           type="text"
           value={title}
           onChange={(e) => {
             setTitle(e.target.value);
           }}
         />
-        <input
+        <Label>내용을 입력하세요</Label>
+        <Input
           type="text"
           value={body}
           onChange={(e) => {
             setBody(e.target.value);
           }}
         />
-        <button>추가하기</button>
-      </form>
+        <Button>추가하기</Button>
+      </FormStyled>
     </div>
   );
 };
