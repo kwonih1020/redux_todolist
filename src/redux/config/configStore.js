@@ -1,12 +1,10 @@
 import { createStore } from "redux";
 import { combineReducers } from "redux";
-
-import inputs from "../modules/todo";
+import todos from "../modules/todo";
 
 const rootReducer = combineReducers({
-  inputs: inputs,
+  todos: todos
 });
-
 const store = createStore(rootReducer);
 
 export default store;

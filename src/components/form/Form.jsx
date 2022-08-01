@@ -2,50 +2,69 @@
 
 import React from 'react';
 import { Button, FormStyled, Label, Input } from './style.js';
-import { useSelector, useDispatch } from 'react-redux';
-import { useState } from 'react';
-import { addTodo } from '../../redux/modules/todo';
+import { useDispatch} from 'react-redux';
+import { createTodo } from '../../redux/modules/todo.js';
+import { useState, useRef } from 'react';
 
 const Form = () => {
 
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
-  const inputs = useSelector((state) => state.inputs.inputs); // 추가해주세요.
-  console.log(inputs); // 스토어를 조회해볼까요?
+  const [todo, setTodo] = useState({
+    id: 0,
+    title: "",
+    body: "",
+    isDone: false,
+  });
+  const { title, body } = todo;
+  
+  const nextId = useRef(2);
 
   const dispatch = useDispatch();
 
-  const onSubmitHandler = (e) => {
+  const onChangeHandler = (event) => {
+    const { name, value } = event.target;
+    setTodo(
+      { 
+        ...todo, 
+        [name]: value 
+      }
+    );
+  };
+
+  const onSubmitHandlerForm = (e) => {
     e.preventDefault();
-    if (title === "" && body === "") return;
+    if (todo.title === "" || todo.body === "") return;
 
     dispatch(
-      addTodo({
-        id: inputs.length,
-        title,
-        body
+      createTodo({
+        ...todo,
+        id: nextId.current + 1
       })
-    )
-  }
+    );
+    nextId.current += 1;
+    setTodo({
+      id: 0,
+      title: "",
+      body: "",
+      isDone: false,
+    });
+  };
 
   return (
     <div>
-      <FormStyled onSubmit={onSubmitHandler}>
+      <FormStyled onSubmit={onSubmitHandlerForm}>
         <Label>제목을 입력하세요</Label>
         <Input
           type="text"
           value={title}
-          onChange={(e) => {
-            setTitle(e.target.value);
-          }}
+          name="title"
+          onChange={onChangeHandler}
         />
         <Label>내용을 입력하세요</Label>
         <Input
           type="text"
           value={body}
-          onChange={(e) => {
-            setBody(e.target.value);
-          }}
+          name="body"
+          onChange={onChangeHandler}
         />
         <Button>추가하기</Button>
       </FormStyled>
