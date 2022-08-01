@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Button, FormStyled, Label, Input } from './style.js';
-import { useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { createTodo } from '../../redux/modules/todo.js';
 import { useState, useRef } from 'react';
 
@@ -14,6 +14,7 @@ const Form = () => {
     body: "",
     isDone: false,
   });
+
   const { title, body } = todo;
   
   const nextId = useRef(2);
@@ -37,7 +38,9 @@ const Form = () => {
     dispatch(
       createTodo({
         ...todo,
-        id: nextId.current + 1
+        id: nextId.current,
+        title,
+        body
       })
     );
     nextId.current += 1;

@@ -10,7 +10,8 @@ const List = () => {
   
   const dispatch = useDispatch();
 
-  const deleteCard = (e, id) => {
+  // 삭제
+  const deleteHandler = (e, id) => {
     e.preventDefault();
     dispatch(deleteTodo(id))
   }
@@ -20,12 +21,12 @@ const List = () => {
       <h1 className='list-title'>Working!</h1>
       <ListBoxTodo>
         {lists.map((todo, i) => (
-          <TodoContainer>
-            <div key={lists[i].id}>
-              <h4>{lists[i].title}</h4>
-              <h4>{lists[i].body}</h4>
+          <TodoContainer key={i}>
+            <div>
+              <h4>{todo.title}</h4>
+              <h4>{todo.body}</h4>
               <ButtonBox>
-                <Button onClick={(e)=> deleteCard(e,lists[i].id)}>삭제하기</Button>
+                <Button onClick={(e)=> deleteHandler(e, todo.id)}>삭제하기</Button>
                 <Button>완료하기</Button>
               </ButtonBox>
             </div>
@@ -35,12 +36,12 @@ const List = () => {
       <h1 className='list-title'>Done!</h1>
       <ListBoxDone>
         {/* {lists.map((todo, i) => (
-          <TodoContainer>
-            <div key={i}>
-              <h4>{lists[i].title}</h4>
-              <h4>{lists[i].body}</h4>
+          <TodoContainer key={i}>
+            <div>
+              <h4>{todo.title}</h4>
+              <h4>{todo.body}</h4>
               <ButtonBox>
-                <Button>삭제하기</Button>
+                <Button onClick={(e)=> deleteCard(e, todo.id)}>삭제하기</Button>
                 <Button>완료하기</Button>
               </ButtonBox>
             </div>
