@@ -33,7 +33,7 @@ const List = () => {
         {lists.map((todo, i) => (
           todo.isDone === false ?
             <TodoContainer key={i}>
-              <Link to={`/${todo.id}`}>상세페이지</Link>
+              <Link to={`/detail/${todo.id}`}>상세페이지</Link>
               <div>
                 <h4>{todo.title}</h4>
                 <h4>{todo.body}</h4>
@@ -51,7 +51,7 @@ const List = () => {
         {lists.map((todo, i) => (
           todo.isDone === true ?
             <TodoContainer key={i}>
-              <Link to="/detail">상세페이지</Link>
+              <Link to={`/detail/${todo.id}`}>상세페이지</Link>
               <div>
                 <h4>{todo.title}</h4>
                 <h4>{todo.body}</h4>

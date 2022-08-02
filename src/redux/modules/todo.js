@@ -2,6 +2,7 @@
 const CREATE_TODO = "CREATE_TODO";
 const DELETE_TODO = "DELETE_TODO";
 const UPDATE_TODO = "UPDATE_TODO";
+const GET_PAGE_ID = "GET_PAGE_ID";
 
 // Action Creator
 export const createTodo = (payload) => {
@@ -16,14 +17,17 @@ export const updateTodo = (payload) => {
   return { type: UPDATE_TODO, payload }
 }
 
+export const getPageId = (payload) => {
+  return { type: GET_PAGE_ID, payload }
+}
+
 // 초기 상태값
 const initialState = {
-  inputs: [
+  todo: [
     {
       id: 0,
       title: '',
-      body: '',
-      isDone: false,
+      body: ''
     }
   ],
   todos: [
@@ -54,12 +58,18 @@ const todos = (state = initialState, action) => {
       return {
         ...state,
         todos: state.todos.filter((todo) => todo.id !== action.payload)
-      }
+      };
     case UPDATE_TODO:
       return {
         ...state,
         todos: state.todos.map((todo) => todo.id === action.payload ? {...todo, isDone: !todo.isDone} : todo )
-      }
+      };
+    case GET_PAGE_ID:
+      return {
+        ...state,
+        todo: state.todos.find((todo)=> todo.id === Number(action.payload))
+        // 여기서 받아도는 action.payload는 ID 값인데, 문자열이기 때문에, todo.id는 숫자열이라서 Number()로 action.payload를 숫자열로 변경       
+      };
     default:
       return state;
   }

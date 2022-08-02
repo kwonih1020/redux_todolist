@@ -6,13 +6,11 @@ import Header from '../components/header/Header';
 
 const TodoList = () => {
   return (
-    <>
-      <Layout>
-        <Header />
-        <Form />
-        <List />
-      </Layout>
-    </>
+    <Layout>
+      <Header />
+      <Form />
+      <List />
+    </Layout>
   );
 };
 
