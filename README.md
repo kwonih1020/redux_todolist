@@ -3,6 +3,7 @@
 <div align=center> 
 <img src="https://img.shields.io/badge/React.js-F7DF1E?style=for-the-badge&logo=react&logoColor=#3776AB"/>
 <img src="https://img.shields.io/badge/Styled_Components-000000?style=for-the-badge&logo=react&logoColor=#3776AB"/>
+<img src="https://img.shields.io/badge/Redux-F7DF1E?style=for-the-badge&logo=redux&logoColor=#3776AB"/>
 <img src="https://img.shields.io/badge/javascript-red?style=for-the-badge&logo=javascript&logoColor=black"/>
 <img src="https://img.shields.io/badge/HTML5-008000?style=for-the-badge&logo=HTML5&logoColor=#E34F26"/>
 <img src="https://img.shields.io/badge/CSS3-blue?style=for-the-badge&logo=css3&logoColor=#1572B6"/>
@@ -16,13 +17,18 @@
 
 ## 라이브러리 🛠
 - React.js
+- Redux
+- Styled Components
+- Router
 
 ## 환경설정
 ```
 - npm install --global yarn (yarn을 설치 안했을때)
 - yarn create react-app "프로젝트 명"
-- yarn start
 - yarn add styled-components
+- yarn add react-redux
+- yarn add react-router=dom@6
+- yarn start
 ```
 ##
 
