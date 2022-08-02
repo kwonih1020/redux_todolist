@@ -72,7 +72,6 @@ const todos = (state = initialState, action) => {
       return {
         ...state,
         todo: state.todos.find((todo)=> todo.id === action.payload)
-        // 여기서 받아도는 action.payload는 ID 값인데, 문자열이기 때문에, todo.id는 숫자열이라서 Number()로 action.payload를 숫자열로 변경       
       };
     default:
       return state;

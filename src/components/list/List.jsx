@@ -24,8 +24,6 @@ const List = () => {
     console.log(lists)
   }
 
-  console.log(lists);
-
   return (
     <ListContainer>
       <h1 className='list-title'>Working!</h1>
