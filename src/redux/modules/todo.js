@@ -32,13 +32,13 @@ const initialState = {
   ],
   todos: [
     {
-      id: 1, // id는 모두 고유값이어야 합니다.
+      id: "ID0", // id는 모두 고유값이어야 합니다.
       title: "리액트 강의보기",
       body: "챕터 1부터 챕터 12까지 학습",
       isDone: false
     },
     {
-      id: 2, // id는 모두 고유값이어야 합니다.
+      id: "ID1", // id는 모두 고유값이어야 합니다.
       title: "점심 먹기",
       body: "점심 뭐먹지..?",
       isDone: false
@@ -71,7 +71,7 @@ const todos = (state = initialState, action) => {
     case GET_PAGE_ID:
       return {
         ...state,
-        todo: state.todos.find((todo)=> todo.id === Number(action.payload))
+        todo: state.todos.find((todo)=> todo.id === action.payload)
         // 여기서 받아도는 action.payload는 ID 값인데, 문자열이기 때문에, todo.id는 숫자열이라서 Number()로 action.payload를 숫자열로 변경       
       };
     default:

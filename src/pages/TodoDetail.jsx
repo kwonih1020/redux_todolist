@@ -29,7 +29,7 @@ const TodoDetail = () => {
             </Link>
           </LinkButton>
           <DetailText>
-            <div>ID: {todo.id}</div>
+            <div>{todo.id}</div>
             <h4>{todo.title}</h4>
             <h4>{todo.body}</h4>
           </DetailText>

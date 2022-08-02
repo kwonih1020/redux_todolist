@@ -4,11 +4,12 @@ import React from 'react';
 import { Button, FormStyled, Label, Input } from './style.js';
 import { useDispatch } from 'react-redux';
 import { createTodo } from '../../redux/modules/todo.js';
-import { useState, useRef } from 'react';
+import { useState } from 'react';
+import nextId from "react-id-generator";
 
 const Form = () => {
   const dispatch = useDispatch();
-  const nextId = useRef(3);
+  const id = nextId("ID");
 
   const [todo, setTodo] = useState({
     id: 0,
@@ -35,7 +36,7 @@ const Form = () => {
 
     dispatch(
       createTodo({
-        id: nextId.current,
+        id,
         title,
         body,
         isDone: false
