@@ -7,8 +7,8 @@ import Header from '../components/header/Header';
 const TodoList = () => {
   return (
     <>
-      <Header />
       <Layout>
+        <Header />
         <Form />
         <List />
       </Layout>

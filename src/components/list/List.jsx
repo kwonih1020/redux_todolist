@@ -29,32 +29,36 @@ const List = () => {
       <h1 className='list-title'>Working!</h1>
       <ListBoxTodo>
         {lists.map((todo, i) => (
-          <TodoContainer key={i}>
-            <div>
-              <h4>{todo.title}</h4>
-              <h4>{todo.body}</h4>
-              <ButtonBox>
-                <Button onClick={(e) => deleteHandler(e, todo.id)}>삭제하기</Button>
-                <Button onClick={() => updateHandler(todo.id)}>완료하기</Button>
-              </ButtonBox>
-            </div>
-          </TodoContainer>
+          todo.isDone === false ?
+            <TodoContainer key={i}>
+              <div>
+                <h4>{todo.title}</h4>
+                <h4>{todo.body}</h4>
+                <ButtonBox>
+                  <Button onClick={(e) => deleteHandler(e, todo.id)}>삭제하기</Button>
+                  <Button onClick={() => updateHandler(todo.id)}>완료하기</Button>
+                </ButtonBox>
+              </div>
+            </TodoContainer>
+          : null
         ))}
       </ListBoxTodo>
       <h1 className='list-title'>Done!</h1>
       <ListBoxDone>
-        {/* {lists.map((todo, i) => (
-          <TodoContainer key={i}>
-            <div>
-              <h4>{todo.title}</h4>
-              <h4>{todo.body}</h4>
-              <ButtonBox>
-                <Button onClick={(e)=> deleteCard(e, todo.id)}>삭제하기</Button>
-                <Button>완료하기</Button>
-              </ButtonBox>
-            </div>
-          </TodoContainer>
-        ))} */}
+        {lists.map((todo, i) => (
+          todo.isDone === true ?
+            <TodoContainer key={i}>
+              <div>
+                <h4>{todo.title}</h4>
+                <h4>{todo.body}</h4>
+                <ButtonBox>
+                  <Button onClick={(e) => deleteHandler(e, todo.id)}>삭제하기</Button>
+                  <Button onClick={() => updateHandler(todo.id)}>{todo.isDone ? "취소하기" : "완료하기"}</Button>
+                </ButtonBox>
+              </div>
+            </TodoContainer>
+          : null
+        ))}
       </ListBoxDone>
     </ListContainer>
   );

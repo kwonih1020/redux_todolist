@@ -38,7 +38,8 @@ const Form = () => {
         ...todo,
         id: nextId.current,
         title,
-        body
+        body,
+        isDone: false
       })
     );
     nextId.current += 1;

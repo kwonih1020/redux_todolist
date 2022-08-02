@@ -42,7 +42,7 @@ const initialState = {
   ]
 }
 
-// 변화를 일으키는 함수 = 리듀셔
+// Reducer - 변화를 일으키는 함수 = 리듀셔
 const todos = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_TODO:
