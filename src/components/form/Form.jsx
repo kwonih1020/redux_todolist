@@ -8,7 +8,7 @@ import { useState, useRef } from 'react';
 
 const Form = () => {
   const dispatch = useDispatch();
-  const nextId = useRef(2);
+  const nextId = useRef(3);
 
   const [todo, setTodo] = useState({
     id: 0,
@@ -35,7 +35,6 @@ const Form = () => {
 
     dispatch(
       createTodo({
-        ...todo,
         id: nextId.current,
         title,
         body,
