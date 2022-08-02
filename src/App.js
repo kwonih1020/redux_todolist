@@ -2,10 +2,13 @@
 
 import React from 'react';
 import './App.css';
-import TodoList from './pages/TodoList';
+import Router from './shared/Router';
+
 
 const App = () => {
-  return <TodoList />
+  return (
+    <Router />
+  )
 };
 
 export default App;

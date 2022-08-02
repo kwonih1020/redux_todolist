@@ -13,7 +13,6 @@ const TodoList = () => {
         <List />
       </Layout>
     </>
-      
   );
 };
 

@@ -3,6 +3,8 @@ import { ListBoxDone, ListBoxTodo, ListContainer, TodoContainer, ButtonBox, Butt
 import { useSelector } from "react-redux";
 import { deleteTodo, updateTodo } from '../../redux/modules/todo.js';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom'
+
 
 const List = () => {
   const lists = useSelector((state) => state.todos.todos);
@@ -22,7 +24,7 @@ const List = () => {
     console.log(lists)
   }
 
-  console.log(lists)
+  console.log(lists);
 
   return (
     <ListContainer>
@@ -31,6 +33,7 @@ const List = () => {
         {lists.map((todo, i) => (
           todo.isDone === false ?
             <TodoContainer key={i}>
+              <Link to={`/${todo.id}`}>상세페이지</Link>
               <div>
                 <h4>{todo.title}</h4>
                 <h4>{todo.body}</h4>
@@ -48,6 +51,7 @@ const List = () => {
         {lists.map((todo, i) => (
           todo.isDone === true ?
             <TodoContainer key={i}>
+              <Link to="/detail">상세페이지</Link>
               <div>
                 <h4>{todo.title}</h4>
                 <h4>{todo.body}</h4>
