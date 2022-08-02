@@ -57,12 +57,16 @@ const todos = (state = initialState, action) => {
     case DELETE_TODO:
       return {
         ...state,
-        todos: state.todos.filter((todo) => todo.id !== action.payload)
+        todos: state.todos.filter(
+          (todo) => todo.id !== action.payload
+        )
       };
     case UPDATE_TODO:
       return {
         ...state,
-        todos: state.todos.map((todo) => todo.id === action.payload ? {...todo, isDone: !todo.isDone} : todo )
+        todos: state.todos.map(
+          (todo) => todo.id === action.payload ? {...todo, isDone: !todo.isDone} : todo 
+        )
       };
     case GET_PAGE_ID:
       return {

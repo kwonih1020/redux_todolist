@@ -23,7 +23,10 @@ const TodoDetail = () => {
     <DetailContainer>
         <DetailBox>
           <LinkButton>
-            <Link to={'/'} style={{ textDecoration: 'none', color: "red" }}>이전으로</Link>
+            <Link to={'/'} 
+                  style={{ textDecoration: 'none', color: "red" }}>
+                  이전으로
+            </Link>
           </LinkButton>
           <DetailText>
             <div>ID: {todo.id}</div>

@@ -31,9 +31,12 @@ const List = () => {
       <h1 className='list-title'>Working!</h1>
       <ListBoxTodo>
         {lists.map((todo, i) => (
-          todo.isDone === false ?
+          !todo.isDone ?
             <TodoContainer key={i}>
-              <Link to={`/detail/${todo.id}`}>상세페이지</Link>
+              <Link to={`/detail/${todo.id}`} 
+                    style={{ textDecoration: 'none', color: "red" }}>
+                    상세페이지
+              </Link>
               <div>
                 <h4>{todo.title}</h4>
                 <h4>{todo.body}</h4>
@@ -49,15 +52,20 @@ const List = () => {
       <h1 className='list-title'>Done!</h1>
       <ListBoxDone>
         {lists.map((todo, i) => (
-          todo.isDone === true ?
+          todo.isDone ?
             <TodoContainer key={i}>
-              <Link to={`/detail/${todo.id}`}>상세페이지</Link>
+              <Link to={`/detail/${todo.id}`} 
+                    style={{ textDecoration: 'none', color: "red" }}>
+                    상세페이지
+              </Link>
               <div>
                 <h4>{todo.title}</h4>
                 <h4>{todo.body}</h4>
                 <ButtonBox>
                   <Button onClick={(e) => deleteHandler(e, todo.id)}>삭제하기</Button>
-                  <Button onClick={() => updateHandler(todo.id)}>{todo.isDone ? "취소하기" : "완료하기"}</Button>
+                  <Button onClick={() => updateHandler(todo.id)}>
+                    {todo.isDone ? "취소하기" : "완료하기"}
+                  </Button>
                 </ButtonBox>
               </div>
             </TodoContainer>
