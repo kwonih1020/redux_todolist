@@ -33,4 +33,7 @@
 ##
 
 ## 메인페이지
-![Screen Shot 2022-07-26 at 3 48 24 PM](https://user-images.githubusercontent.com/26310384/180941666-f6e2e573-eee3-480d-8aad-72cc66433008.png)
+![Screen Shot 2022-08-02 at 2 51 49 PM](https://user-images.githubusercontent.com/26310384/182301703-87478753-01b9-448d-8107-0805daec96c8.png)
+## 상세페이지
+![Screen Shot 2022-08-02 at 2 51 53 PM](https://user-images.githubusercontent.com/26310384/182301756-37a7082f-d33c-4fbe-b9c7-5632e06c4f26.png)
+
