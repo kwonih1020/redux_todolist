@@ -1,5 +1,7 @@
+// Action Value
 const CREATE_TODO = "CREATE_TODO";
 const DELETE_TODO = "DELETE_TODO";
+const UPDATE_TODO = "UPDATE_TODO";
 
 // Action Creator
 export const createTodo = (payload) => {
@@ -9,6 +11,10 @@ export const createTodo = (payload) => {
 export const deleteTodo = (payload) => {
   return { type: DELETE_TODO, payload };
 };
+
+export const updateTodo = (payload) => {
+  return { type: UPDATE_TODO, payload }
+}
 
 // 초기 상태값
 const initialState = {
@@ -48,6 +54,11 @@ const todos = (state = initialState, action) => {
       return {
         ...state,
         todos: state.todos.filter((todo) => todo.id !== action.payload)
+      }
+    case UPDATE_TODO:
+      return {
+        ...state,
+        todos: state.todos.map((todo) => todo.id === action.payload ? {...todo, isDone: !todo.isDone} : todo )
       }
     default:
       return state;

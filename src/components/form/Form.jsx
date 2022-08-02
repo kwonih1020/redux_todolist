@@ -7,6 +7,8 @@ import { createTodo } from '../../redux/modules/todo.js';
 import { useState, useRef } from 'react';
 
 const Form = () => {
+  const dispatch = useDispatch();
+  const nextId = useRef(2);
 
   const [todo, setTodo] = useState({
     id: 0,
@@ -16,10 +18,6 @@ const Form = () => {
   });
 
   const { title, body } = todo;
-  
-  const nextId = useRef(2);
-
-  const dispatch = useDispatch();
 
   const onChangeHandler = (event) => {
     const { name, value } = event.target;
@@ -45,16 +43,14 @@ const Form = () => {
     );
     nextId.current += 1;
     setTodo({
-      id: 0,
       title: "",
       body: "",
-      isDone: false,
     });
   };
 
   return (
     <div>
-      <FormStyled onSubmit={onSubmitHandlerForm}>
+      <FormStyled type="submit" onSubmit={onSubmitHandlerForm}>
         <Label>제목을 입력하세요</Label>
         <Input
           type="text"

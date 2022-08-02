@@ -1,7 +1,7 @@
 import React from 'react';
 import { ListBoxDone, ListBoxTodo, ListContainer, TodoContainer, ButtonBox, Button } from './style.js';
 import { useSelector } from "react-redux";
-import { deleteTodo } from '../../redux/modules/todo.js';
+import { deleteTodo, updateTodo } from '../../redux/modules/todo.js';
 import { useDispatch } from 'react-redux';
 
 const List = () => {
@@ -16,6 +16,14 @@ const List = () => {
     dispatch(deleteTodo(id))
   }
 
+  // 완료하기
+  const updateHandler = (id) => {
+    dispatch(updateTodo(id));
+    console.log(lists)
+  }
+
+  console.log(lists)
+
   return (
     <ListContainer>
       <h1 className='list-title'>Working!</h1>
@@ -26,8 +34,8 @@ const List = () => {
               <h4>{todo.title}</h4>
               <h4>{todo.body}</h4>
               <ButtonBox>
-                <Button onClick={(e)=> deleteHandler(e, todo.id)}>삭제하기</Button>
-                <Button>완료하기</Button>
+                <Button onClick={(e) => deleteHandler(e, todo.id)}>삭제하기</Button>
+                <Button onClick={() => updateHandler(todo.id)}>완료하기</Button>
               </ButtonBox>
             </div>
           </TodoContainer>
