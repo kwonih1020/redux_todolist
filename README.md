@@ -37,3 +37,6 @@
 ## 상세페이지
 ![Screen Shot 2022-08-02 at 2 51 53 PM](https://user-images.githubusercontent.com/26310384/182301756-37a7082f-d33c-4fbe-b9c7-5632e06c4f26.png)
 
+## 컴포넌트 구성
+![Screen Shot 2022-08-03 at 3 30 31 PM](https://user-images.githubusercontent.com/26310384/182539651-8e9f4436-92bf-478a-a1e8-b457f57dc180.png)
+
