@@ -1,10 +1,15 @@
+// eslint-disable-next-line 
+
 import React from 'react';
 import LayoutContainer from './style.js';
+import Header from '../header/Header.jsx';
+import { Outlet } from 'react-router-dom';
 
-const Layout = ({ children }) => {
+const Layout = () => {
   return (
     <LayoutContainer>
-      {children}
+      <Header />
+      <Outlet />
     </LayoutContainer>
   );
 };
