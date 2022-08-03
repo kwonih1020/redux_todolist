@@ -26,7 +26,7 @@ const TodoDetail = () => {
     <DetailContainer>
       <DetailBox>
         <LinkButton>
-          <Link to={'/redux_todolist'} 
+          <Link to={'/'} 
                 style={{ textDecoration: 'none', color: "red" }}>
                 이전으로
           </Link>

@@ -6,33 +6,42 @@ const GET_PAGE_ID = "GET_PAGE_ID";
 
 // Action Creator
 export const createTodo = (payload) => {
-  return { type: CREATE_TODO, payload };
+  return {
+    type: CREATE_TODO,
+    payload
+  };
 };
 
 export const deleteTodo = (payload) => {
-  return { type: DELETE_TODO, payload };
+  return {
+    type: DELETE_TODO,
+    payload
+  };
 };
 
 export const updateTodo = (payload) => {
-  return { type: UPDATE_TODO, payload }
+  return {
+    type: UPDATE_TODO,
+    payload
+  }
 }
 
 export const getPageId = (payload) => {
-  return { type: GET_PAGE_ID, payload }
+  return {
+    type: GET_PAGE_ID,
+    payload
+  }
 }
 
 // 초기 상태값
 const initialState = {
-  todo: [
-    {
-      id: 0,
-      title: '',
-      body: '',
-      idDone: false
-    }
-  ],
-  todos: [
-    {
+  todo: [{
+    id: 0,
+    title: '',
+    body: '',
+    idDone: false
+  }],
+  todos: [{
       id: "ID0", // id는 모두 고유값이어야 합니다.
       title: "리액트 강의보기",
       body: "챕터 1부터 챕터 12까지 학습",
@@ -66,13 +75,16 @@ const todos = (state = initialState, action) => {
       return {
         ...state,
         todos: state.todos.map(
-          (todo) => todo.id === action.payload ? {...todo, isDone: !todo.isDone} : todo 
+          (todo) => todo.id === action.payload ? {
+            ...todo,
+            isDone: !todo.isDone
+          } : todo
         )
       };
     case GET_PAGE_ID:
       return {
         ...state,
-        todo: state.todos.find((todo)=> todo.id === action.payload)
+        todo: state.todos.find((todo) => todo.id === action.payload)
       };
     default:
       return state;

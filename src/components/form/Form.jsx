@@ -22,12 +22,7 @@ const Form = () => {
 
   const onChangeHandler = (event) => {
     const { name, value } = event.target;
-    setTodo(
-      { 
-        ...todo, 
-        [name]: value 
-      }
-    );
+    setTodo({...todo, [name]: value});
   };
 
   const onSubmitHandlerForm = (e) => {
@@ -42,25 +37,21 @@ const Form = () => {
   };
 
   return (
-    <div>
-      <FormStyled type="submit" onSubmit={onSubmitHandlerForm}>
-        <Label>제목을 입력하세요</Label>
-        <Input
-          type="text"
-          value={title}
-          name="title"
-          onChange={onChangeHandler}
-        />
-        <Label>내용을 입력하세요</Label>
-        <Input
-          type="text"
-          value={body}
-          name="body"
-          onChange={onChangeHandler}
-        />
-        <Button>추가하기</Button>
-      </FormStyled>
-    </div>
+    <FormStyled type="submit" onSubmit={onSubmitHandlerForm}>
+      <Label>제목을 입력하세요</Label>
+      <Input
+        type="text"
+        value={title}
+        name="title"
+        onChange={onChangeHandler} />
+      <Label>내용을 입력하세요</Label>
+      <Input
+        type="text"
+        value={body}
+        name="body"
+        onChange={onChangeHandler} />
+      <Button>추가하기</Button>
+    </FormStyled>
   );
 };
 

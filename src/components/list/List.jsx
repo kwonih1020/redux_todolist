@@ -31,7 +31,7 @@ const List = () => {
         {lists.map((todo, i) => (
           !todo.isDone ?
             <TodoContainer key={i}>
-              <Link to={`/redux_todolist/detail/${todo.id}`} 
+              <Link to={`/detail/${todo.id}`} 
                     style={{ textDecoration: 'none', color: "red" }}>
                     상세페이지
               </Link>
@@ -52,7 +52,7 @@ const List = () => {
         {lists.map((todo, i) => (
           todo.isDone ?
             <TodoContainer key={i}>
-              <Link to={`/redux_todolist/detail/${todo.id}`} 
+              <Link to={`/detail/${todo.id}`} 
                     style={{ textDecoration: 'none', color: "red" }}>
                     상세페이지
               </Link>

@@ -8,11 +8,11 @@ import Layout from '../components/layout/Layout';
 
 const Router = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/redux_todolist" element={<TodoList />} />
-          <Route path="/redux_todolist/detail/:id" element={<TodoDetail />} />
+          <Route path="/" element={<TodoList />} />
+          <Route path="/detail/:id" element={<TodoDetail />} />
         </Route>
       </Routes>
     </BrowserRouter>
