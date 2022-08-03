@@ -37,6 +37,27 @@
 ## 상세페이지
 ![Screen Shot 2022-08-02 at 2 51 53 PM](https://user-images.githubusercontent.com/26310384/182301756-37a7082f-d33c-4fbe-b9c7-5632e06c4f26.png)
 
-## 컴포넌트 구성
+## 폴더 구성
 ![Screen Shot 2022-08-03 at 3 30 31 PM](https://user-images.githubusercontent.com/26310384/182539651-8e9f4436-92bf-478a-a1e8-b457f57dc180.png)
+우선 폴더구성을 이미지로 보기 쉽게 올려두었습니다.
 
+## 컴포넌트 구성
+```javascript
+<App>
+  <Layout>
+    <Header />
+    <TodoList>
+      <Form />
+      <List />
+    </Todolist>
+    <TodoDetail />
+  </Layout>
+</App>
+```
+
+Layout 컴포넌트는 단순히 전체페이지 틀일 잡기 위해서 만들어놓은 css 레이아웃이다.
+그 밑에 Header, TodoList와 TodoDetail 페이이로 컴포넌트 구성을 잤다.
+TodoList 컴포넌트는 하위 컴포넌트인 Form 과 List를 형제 컴포넌트로 품고 있다.
+Form과 List를 TodoList 하위 컴포넌트로 묶어준 이유는 Router를 이용할때 Form과 List가 한 페이지에 모여있기 때문에
+상위 컴포넌트인 TodoList를 "/" 즉 홈으로 지정하고, TodoDetail를 "/detail/:id" 로 페이지 설정을 하여서 
+Router 이용해 페이지간 이동할 수 있도록 설계하였다.
