@@ -27,7 +27,8 @@ const initialState = {
     {
       id: 0,
       title: '',
-      body: ''
+      body: '',
+      idDone: false
     }
   ],
   todos: [

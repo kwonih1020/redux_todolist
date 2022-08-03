@@ -34,15 +34,7 @@ const Form = () => {
     e.preventDefault();
     if (todo.title === "" || todo.body === "") return;
 
-    dispatch(
-      createTodo({
-        id,
-        title,
-        body,
-        isDone: false
-      })
-    );
-    nextId.current += 1;
+    dispatch(createTodo({...todo, id}));
     setTodo({
       title: "",
       body: "",
