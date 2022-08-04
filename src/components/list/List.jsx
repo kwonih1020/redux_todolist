@@ -20,12 +20,13 @@ const List = () => {
 
   // 삭제
   const deleteHandler = (e, id) => {
-    e.preventDefault();
+    e.stopPropagation();
     dispatch(deleteTodo(id));
   };
 
   // 완료하기
-  const updateHandler = (id) => {
+  const updateHandler = (e, id) => {
+    e.stopPropagation();
     dispatch(updateTodo(id));
     // console.log(lists);
   };
@@ -34,9 +35,9 @@ const List = () => {
     <ListContainer>
       <h1 className="list-title">Working!</h1>
       <ListBoxTodo>
-        {lists.map((todo, i) =>
+        {lists.map((todo) =>
           !todo.isDone ? (
-            <TodoContainer key={i}>
+            <TodoContainer key={todo.id}>
               <Link
                 to={`/detail/${todo.id}`}
                 style={{ textDecoration: "none", color: "red" }}>
@@ -49,7 +50,7 @@ const List = () => {
                   <Button onClick={(e) => deleteHandler(e, todo.id)}>
                     삭제하기
                   </Button>
-                  <Button onClick={() => updateHandler(todo.id)}>
+                  <Button onClick={(e) => updateHandler(e, todo.id)}>
                     완료하기
                   </Button>
                 </ButtonBox>
@@ -60,9 +61,9 @@ const List = () => {
       </ListBoxTodo>
       <h1 className="list-title">Done!</h1>
       <ListBoxDone>
-        {lists.map((todo, i) =>
+        {lists.map((todo) =>
           todo.isDone ? (
-            <TodoContainer key={i}>
+            <TodoContainer key={todo.id}>
               <Link
                 to={`/detail/${todo.id}`}
                 style={{ textDecoration: "none", color: "red" }}>
@@ -75,7 +76,7 @@ const List = () => {
                   <Button onClick={(e) => deleteHandler(e, todo.id)}>
                     삭제하기
                   </Button>
-                  <Button onClick={() => updateHandler(todo.id)}>
+                  <Button onClick={(e) => updateHandler(e, todo.id)}>
                     {todo.isDone ? "취소하기" : "완료하기"}
                   </Button>
                 </ButtonBox>

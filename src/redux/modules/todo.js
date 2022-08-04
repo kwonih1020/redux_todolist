@@ -2,7 +2,7 @@
 const CREATE_TODO = "CREATE_TODO";
 const DELETE_TODO = "DELETE_TODO";
 const UPDATE_TODO = "UPDATE_TODO";
-const GET_PAGE_ID = "GET_PAGE_ID";
+// const GET_PAGE_ID = "GET_PAGE_ID";
 
 // Action Creator
 export const createTodo = (payload) => {
@@ -14,6 +14,7 @@ export const createTodo = (payload) => {
 };
 
 export const deleteTodo = (payload) => {
+  // console.log("payload:", payload);
   return {
     type: DELETE_TODO,
     payload,
@@ -27,32 +28,32 @@ export const updateTodo = (payload) => {
   };
 };
 
-export const getPageId = (payload) => {
-  return {
-    type: GET_PAGE_ID,
-    payload,
-  };
-};
+// export const getPageId = (payload) => {
+//   return {
+//     type: GET_PAGE_ID,
+//     payload,
+//   };
+// };
 
 // 초기 상태값
 const initialState = {
-  todo: [
-    {
-      id: 0,
-      title: "",
-      body: "",
-      idDone: false,
-    },
-  ],
+  // todo: [
+  //   {
+  //     id: 0,
+  //     title: "",
+  //     body: "",
+  //     idDone: false,
+  //   },
+  // ],
   todos: [
     {
-      id: "ID0", // id는 모두 고유값이어야 합니다.
+      id: 1, // id는 모두 고유값이어야 합니다.
       title: "리액트 강의보기",
       body: "챕터 1부터 챕터 12까지 학습",
       isDone: false,
     },
     {
-      id: "ID1", // id는 모두 고유값이어야 합니다.
+      id: 2, // id는 모두 고유값이어야 합니다.
       title: "점심 먹기",
       body: "점심 뭐먹지..?",
       isDone: false,
@@ -66,7 +67,10 @@ const todos = (state = initialState, action) => {
     case CREATE_TODO:
       return {
         ...state,
-        todos: [...state.todos, action.payload],
+        todos: [
+          ...state.todos,
+          { ...action.payload, id: state.todos[state.todos.length - 1].id + 1 },
+        ],
       };
     case DELETE_TODO:
       return {
@@ -85,11 +89,11 @@ const todos = (state = initialState, action) => {
             : todo
         ),
       };
-    case GET_PAGE_ID:
-      return {
-        ...state,
-        todo: state.todos.find((todo) => todo.id === action.payload),
-      };
+    // case GET_PAGE_ID:
+    //   return {
+    //     ...state,
+    //     todo: state.todo.find((todo) => todo.id === action.payload),
+    //   };
     default:
       return state;
   }

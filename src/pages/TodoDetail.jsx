@@ -3,23 +3,22 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { getPageId } from "../redux/modules/todo";
+// import { getPageId } from "../redux/modules/todo";
 import styled from "styled-components";
 
 const TodoDetail = () => {
-  const todo = useSelector((state) => state.todos.todo);
-  // console.log(todo);
+  const todoList = useSelector((state) => state.todos.todos);
+  // console.log(todoList);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const { id } = useParams();
+  const params = useParams();
 
-  useEffect(() => {
-    dispatch(getPageId(id));
-  }, [dispatch, id]);
+  // useEffect(() => {
+  //   dispatch(getPageId(id));
+  // }, [dispatch, id]);
 
-  // console.log(id);
-  // console.log(typeof id);
+  const todo = todoList.find((todo) => String(todo.id) === params.id);
 
   return (
     <DetailContainer>
@@ -30,9 +29,9 @@ const TodoDetail = () => {
           </Link>
         </LinkButton>
         <DetailText>
-          <div>{todo.id}</div>
-          <h4>{todo.title}</h4>
-          <h4>{todo.body}</h4>
+          <div>ID: {todo.id}</div>
+          <h4>제목: {todo.title}</h4>
+          <h4>내용: {todo.body}</h4>
         </DetailText>
       </DetailBox>
     </DetailContainer>
