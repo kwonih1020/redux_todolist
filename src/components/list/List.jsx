@@ -38,7 +38,7 @@ const List = () => {
           !todo.isDone ? (
             <TodoContainer key={i}>
               <Link
-                to={`/detail/${i}`}
+                to={`/detail/${todo.id}`}
                 style={{ textDecoration: "none", color: "red" }}>
                 상세페이지
               </Link>
@@ -64,7 +64,7 @@ const List = () => {
           todo.isDone ? (
             <TodoContainer key={i}>
               <Link
-                to={`/detail/${i}`}
+                to={`/detail/${todo.id}`}
                 style={{ textDecoration: "none", color: "red" }}>
                 상세페이지
               </Link>

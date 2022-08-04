@@ -19,7 +19,7 @@ const TodoDetail = () => {
   }, [dispatch, id]);
 
   // console.log(id);
-  // console.log(typeof(id));
+  // console.log(typeof id);
 
   return (
     <DetailContainer>

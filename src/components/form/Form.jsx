@@ -1,10 +1,10 @@
 // eslint-disable-next-line
 
-import React from 'react';
-import { Button, FormStyled, Label, Input } from './style.js';
-import { useDispatch } from 'react-redux';
-import { createTodo } from '../../redux/modules/todo.js';
-import { useState } from 'react';
+import React from "react";
+import { Button, FormStyled, Label, Input } from "./style.js";
+import { useDispatch } from "react-redux";
+import { createTodo } from "../../redux/modules/todo.js";
+import { useState } from "react";
 import nextId from "react-id-generator";
 
 const Form = () => {
@@ -22,14 +22,14 @@ const Form = () => {
 
   const onChangeHandler = (event) => {
     const { name, value } = event.target;
-    setTodo({...todo, [name]: value});
+    setTodo({ ...todo, [name]: value });
   };
 
   const onSubmitHandlerForm = (e) => {
     e.preventDefault();
     if (todo.title === "" || todo.body === "") return;
 
-    dispatch(createTodo({...todo, id}));
+    dispatch(createTodo({ ...todo, id }));
     setTodo({
       title: "",
       body: "",
@@ -43,13 +43,10 @@ const Form = () => {
         type="text"
         value={title}
         name="title"
-        onChange={onChangeHandler} />
+        onChange={onChangeHandler}
+      />
       <Label>내용을 입력하세요</Label>
-      <Input
-        type="text"
-        value={body}
-        name="body"
-        onChange={onChangeHandler} />
+      <Input type="text" value={body} name="body" onChange={onChangeHandler} />
       <Button>추가하기</Button>
     </FormStyled>
   );

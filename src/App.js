@@ -5,7 +5,7 @@ import "./App.css";
 import Router from "./shared/Router";
 
 const App = () => {
-  <Router />;
+  return <Router />;
 };
 
 export default App;
