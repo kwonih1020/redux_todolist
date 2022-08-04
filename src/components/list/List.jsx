@@ -27,7 +27,7 @@ const List = () => {
   // 완료하기
   const updateHandler = (id) => {
     dispatch(updateTodo(id));
-    console.log(lists);
+    // console.log(lists);
   };
 
   return (

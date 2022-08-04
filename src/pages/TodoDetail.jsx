@@ -1,34 +1,32 @@
-// eslint-disable-next-line 
+// eslint-disable-next-line
 
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useParams } from 'react-router-dom'
-import { getPageId } from '../redux/modules/todo';
-import styled from 'styled-components';
-
+import { Link, useParams } from "react-router-dom";
+import { getPageId } from "../redux/modules/todo";
+import styled from "styled-components";
 
 const TodoDetail = () => {
-  const todo = useSelector((state) => state.todos.todo); 
-  console.log(todo);
-  
-  const dispatch = useDispatch();
-  
-  const { id } = useParams();
-  
-  useEffect(() => {
-    dispatch(getPageId(id))
-  }, [dispatch, id])
+  const todo = useSelector((state) => state.todos.todo);
+  // console.log(todo);
 
-  console.log(id);
-  console.log(typeof(id));
+  const dispatch = useDispatch();
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    dispatch(getPageId(id));
+  }, [dispatch, id]);
+
+  // console.log(id);
+  // console.log(typeof(id));
 
   return (
     <DetailContainer>
       <DetailBox>
         <LinkButton>
-          <Link to={'/'} 
-                style={{ textDecoration: 'none', color: "red" }}>
-                이전으로
+          <Link to={"/"} style={{ textDecoration: "none", color: "red" }}>
+            이전으로
           </Link>
         </LinkButton>
         <DetailText>
@@ -50,7 +48,7 @@ const DetailContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`
+`;
 
 const DetailBox = styled.div`
   width: 600px;
@@ -59,14 +57,14 @@ const DetailBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-`
+`;
 
 const DetailText = styled.div`
   padding: 0 24px;
   align-items: center;
-`
+`;
 
 const LinkButton = styled.div`
   cursor: pointer;
   text-align: right;
-`
+`;
