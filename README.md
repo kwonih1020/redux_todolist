@@ -17,7 +17,7 @@
 
 ## 라이브러리 🛠
 - React.js
-- Redux
+- Redux-Toolkit
 - Styled Components
 - Router
 
@@ -28,6 +28,7 @@
 - yarn add styled-components
 - yarn add react-redux
 - yarn add react-router=dom@6
+- yarn add react-redux @reduxjs/toolkit
 - yarn start
 ```
 ##
