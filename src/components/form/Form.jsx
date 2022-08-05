@@ -3,7 +3,7 @@
 import React from "react";
 import { Button, FormStyled, Label, Input } from "./style.js";
 import { useDispatch } from "react-redux";
-import { createTodo } from "../../redux/modules/todo.js";
+import { createTodo } from "../../redux/modules/todoSlice.js";
 import { useState } from "react";
 import nextId from "react-id-generator";
 

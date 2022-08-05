@@ -8,13 +8,13 @@ import {
   Button,
 } from "./style.js";
 import { useSelector } from "react-redux";
-import { deleteTodo, updateTodo } from "../../redux/modules/todo.js";
+import { deleteTodo, updateTodo } from "../../redux/modules/todoSlice.js";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 const List = () => {
   const lists = useSelector((state) => state.todos.todos);
-  // console.log(lists);
+  console.log(lists);
 
   const dispatch = useDispatch();
 
